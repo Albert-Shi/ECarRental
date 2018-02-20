@@ -1,0 +1,2 @@
+index.php负责主要的信息查询
+uploadimg.php负责车辆图片的上传

@@ -1,0 +1,36 @@
+//用以存储车辆信息的carsinfo表
+create table carsinfo (
+	Number CHAR (10) PRIMARY KEY, 
+	Able SMALLINT NOT NULL,
+	Style CHAR (8) NOT NULL,
+	Brand CHAR (10),
+	Name CHAR (10),
+	People SMALLINT NOT NULL,
+	Cargo SMALLINT  NOT NULL,
+	Price SMALLINT NOT NULL,
+	Deposit SMALLINT NOT NULL,
+	Distance INT NOT NULL,
+	Picture CHAR (100),
+	Note CHAR (500)
+)
+
+//用以存储账户信息的usersinfo表
+create table usersinfo (
+	Account CHAR (16) PRIMARY KEY,
+	Password CHAR (16) NOT NULL,
+	Admin SMALLINT NOT NULL,
+	Name CHAR (10) NOT NULL,
+	Cash INT NOT NULL
+)
+
+//用以存储租车信息的rentinfo表
+create table rentinfo (
+	Account CHAR (16),
+	Number CHAR (10),
+	Startdate CHAR (12),
+	Day SMALLINT,
+	Total SMALLINT NOT NULL,
+	PRIMARY KEY (Account, Number),
+	FOREIGN KEY (Number) REFERENCES carsinfo(Number),
+	FOREIGN KEY (Account) REFERENCES usersinfo(Account)
+)
